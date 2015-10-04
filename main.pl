@@ -393,11 +393,11 @@ __DATA__
 
     </div>
 
-    <div class="white-on-purple" style="width: 100%; height: 100%;">
+    <div class="white-on-purple" style="width: 100%;">
         <div class="pure-u-1">
             <h2><a id="digs">Our digs: RPM, 420 Rue Guy, Montr&eacute;al</a></h2>
 
-            <iframe style="width: 100%; height: 100%; border:0; min-height: 450px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.0165586740145!2d-73.56659279999997!3d45.48961130000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a638a6b442b%3A0xe315ad11de05f102!2sCentre+cloud.ca!5e0!3m2!1sen!2sca!4v1443915930301"></iframe>
+            <iframe style="width: 100%; border:0; min-height: 450px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.0165586740145!2d-73.56659279999997!3d45.48961130000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a638a6b442b%3A0xe315ad11de05f102!2sCentre+cloud.ca!5e0!3m2!1sen!2sca!4v1443915930301"></iframe>
         </div>
     </div>
 
