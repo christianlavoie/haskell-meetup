@@ -230,7 +230,7 @@ __DATA__
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A layout example that shows off a responsive product landing page.">
 
-    <title>Montreal Haskellers Meetup</title>
+    <title>Montr&eacute;al Haskellers Meetup</title>
 
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="purecss/pure-min.css">
@@ -374,14 +374,14 @@ __DATA__
 <body><div class="pure-g">
     <div class="white-on-purple">
         <div class="pure-u-1">
-            <h1>Montreal Haskellers Meetup</h1>
+            <h1>Montr&eacute;al Haskellers Meetup</h1>
         </div>
 
         <div class="pure-u-md-1-2 pure-u-1">
             <img src="https://wiki.haskell.org/wikiupload/4/4a/HaskellLogoStyPreview-1.png"
                  class="haskell-logo" alt="Haskell Logo">
 
-            <p>We are the Montreal Haskellers.</p>
+            <p>We are the Montr&eacute;al Haskellers.</p>
 
             <p>We are a community that meets 6 times a year to discuss functional programming, welcome newcomers to the community and exchange amongst ourselves.</p>
 
@@ -442,7 +442,7 @@ __DATA__
 
             <p><a href="http://www.meetup.com/Haskellers-Montreal-Meetup">Our Calendar</a> should provide you with a way to get reminders about our events and you can discuss Haskell topics on <a href="https://groups.google.com/forum/#!forum/haskellers-montreal">Our Google Group</a>.</p>
 
-            <p>For those interested in other languages and technologies in Montreal, the Montreal Haskellers recommend the <a href="http://js-montreal.org/">JavaScript meetup</a>, the <a href="http://www.meetup.com/mtl-rb/">Ruby Meetup</a> and the <a href="http://big-data.meetup.com/cities/ca/qc/montr%C3%A9al/">BigData meetup</a>.</p>
+            <p>For those interested in other languages and technologies in Montr&eacute;al, the Montr&eacute;al Haskellers recommend the <a href="http://js-montreal.org/">JavaScript meetup</a>, the <a href="http://www.meetup.com/mtl-rb/">Ruby Meetup</a> and the <a href="http://big-data.meetup.com/cities/ca/qc/montr%C3%A9al/">BigData meetup</a>.</p>
         </div>
 
         <div style="padding: 3%" class="pure-u-1 pure-u-sm-1-2 white-on-purple">
