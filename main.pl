@@ -99,7 +99,7 @@ get '/' => sub {
         talk_text => 'Christian will demonstrate a handful of Haskell libraries like <a href="https://hackage.haskell.org/package/QuickCheck">QuickCheck</a>, <a href="https://hackage.haskell.org/package/hspec">hspec</a>, <a href="https://hackage.haskell.org/package/cereal">cereal</a>, <a href="https://hackage.haskell.org/package/attoparsec">attoparsec</a> and <a href="https://hackage.haskell.org/package/websockets">websockets</a>. But most interestingly, show a way to use Haskell in the browser: the <a href="http://haste-lang.org/">Haste Programming Language</a>.',
     );
 
-    $previous_meetups .= "<hr class=\"small-split\">\n";
+    $previous_meetups .= "<div class=\"pure-u-1\"><hr class=\"small-split\"/></div>\n";
 
     $previous_meetups .= $c->render_to_string(
         template => 'talk',
