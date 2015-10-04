@@ -254,6 +254,10 @@ __DATA__
             text-align: center;
         }
 
+        .links a {
+            display: inline-block;
+        }
+
         .talk-text {
             padding-bottom: 50px;
         }
