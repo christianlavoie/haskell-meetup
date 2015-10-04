@@ -241,7 +241,7 @@ __DATA__
 
         .twitter-widget {
             text-align: center;
-            margin: 0 0 0 5%;
+            margin: 5%;
         }
 
         div.purple-on-white {
