@@ -1,4 +1,5 @@
 #!/bin/sh
 
-perl ./main.pl daemon -l http://127.0.0.1:44001 2>&1 \
-    | /usr/bin/multilog t n16 s16777216 ./logs
+perl ./main.pl daemon -l http://127.0.0.1:44001
+# 2>&1 \
+#| /usr/bin/multilog t n16 s16777216 ./logs

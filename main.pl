@@ -393,7 +393,7 @@ __DATA__
 
     </div>
 
-    <div class="white-on-purple">
+    <div class="white-on-purple" style="width: 100%; height: 100%;">
         <div class="pure-u-1">
             <h2><a id="digs">Our digs: RPM, 420 Rue Guy, Montr&eacute;al</a></h2>
 
