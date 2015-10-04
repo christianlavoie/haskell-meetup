@@ -77,7 +77,7 @@ get '/' => sub {
         template => 'meetup',
 
         url => 'http://www.meetup.com/Haskellers-Montreal-Meetup/events/223004218/',
-        date => 'Wednesday, July 29th @ 18:30',
+        date => 'Wednesday, July 29th, 2015 @ 18:30',
         addr => 'RPM, 420 rue Guy, Montréal, QC');
 
     $previous_meetups .= $c->render_to_string(
@@ -94,7 +94,7 @@ get '/' => sub {
 
         talk_code => 'github.com/christianlavoie/haskell-midi',
         talk_title => 'Haskell and MIDI Instruments',
-        talk_level => 'intermediate',
+        talk_level => 'beginner',
         talk_slides => 'goo.gl/Fhuh3S',
         talk_text => 'Christian will demonstrate a handful of Haskell libraries like <a href="https://hackage.haskell.org/package/QuickCheck">QuickCheck</a>, <a href="https://hackage.haskell.org/package/hspec">hspec</a>, <a href="https://hackage.haskell.org/package/cereal">cereal</a>, <a href="https://hackage.haskell.org/package/attoparsec">attoparsec</a> and <a href="https://hackage.haskell.org/package/websockets">websockets</a>. But most interestingly, show a way to use Haskell in the browser: the <a href="http://haste-lang.org/">Haste Programming Language</a>.',
     );
@@ -116,9 +116,32 @@ get '/' => sub {
         talk_text => 'Guillaume will demonstrate <a href="https://nixos.org/">NixOS</a> and <a href="https://nixos.org/nix/">Nix</a>, the purely functional package manager.',
     );
 
+    $previous_meetups .= "<hr class=\"large-split\">\n";
+
+    $previous_meetups .= $c->render_to_string(
+        template => 'meetup',
+
+        url => 'http://www.meetup.com/Haskellers-Montreal-Meetup/events/219896049/',
+        date => 'Wednesday, Feb 11th, 2015 @ 18:30',
+        addr => 'RPM, 420 rue Guy, Montréal, QC');
+
+    $previous_meetups .= $c->render_to_string(
+        template => 'talk',
+
+        author_name => 'Ben Kirwin',
+        author_avatar => 'https://avatars2.githubusercontent.com/u/1596339',
+
+        author_github => 'bkirwi',
+        author_website => 'ben.kirw.in',
+
+        talk_level => 'intermediate',
+        talk_slides => 'ben.kirw.in/slides/merkle-tree.html',
+        talk_text => 'As promised, the <a href="http://ben.kirw.in/slides/merkle-tree.html">slides from yesterday</a>. On the subject of program specialization / partial evaluation -- GHC does something vaguely analogous using <a href="https://downloads.haskell.org/~ghc/7.0.1/">rewrite rules</a> to avoid creating a bunch of intermediate data structures and a <a href="http://www.haskellforall.com/2014/01/stream-fusion-for-pipes.html">relatively-friendly introduction with some benchmarking</a>.'
+    );
+
     $c->stash(next_meetup => $next_meetup);
     $c->stash(previous_meetups => $previous_meetups);
-    $c->render('index', next_meetup => $next_meetup, previous_meetups => $previous_meetups);
+    $c->render('index');
 };
 
 # Start the Mojolicious command system
