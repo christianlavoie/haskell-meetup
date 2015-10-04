@@ -415,6 +415,8 @@ __DATA__
 
             <p>The <a href="http://www.haskell.org">Haskell Programming Language</a> homepage is the main resource to learn the language.</p>
 
+            <p>The <a href="https://github.com/christianlavoie/haskell-meetup">code for this website</a> is available for all to modify and improve. Send pull requests!</p>
+
             <p><a href="http://www.meetup.com/Haskellers-Montreal-Meetup">Our Calendar</a> should provide you with a way to get reminders about our events and you can discuss Haskell topics on <a href="https://groups.google.com/forum/#!forum/haskellers-montreal">Our Google Group</a>.</p>
 
             <p>For those interested in other languages and technologies in Montreal, the Montreal Haskellers recommend the <a href="http://js-montreal.org/">JavaScript meetup</a>, the <a href="http://www.meetup.com/mtl-rb/">Ruby Meetup</a> and the <a href="http://big-data.meetup.com/cities/ca/qc/montr%C3%A9al/">BigData meetup</a>.</p>
