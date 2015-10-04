@@ -447,7 +447,7 @@ __DATA__
 
     </div>
 
-    <div class="pure-g white-on-purple" style="width: 100%;">
+    <div class="pure-g white-on-purple">
         <div class="pure-u-1">
           <div class="padbot">
             <h2><a id="digs">Our digs: RPM, 420 Rue Guy, Montr&eacute;al</a></h2>
