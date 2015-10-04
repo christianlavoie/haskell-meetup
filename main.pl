@@ -63,7 +63,7 @@ get '/' => sub {
         template => 'talk',
 
         author_name => 'Samuel Gélineau',
-        author_avatar => 'https://avatars0.githubusercontent.com/u/49000?v=3&s=460',
+        author_avatar => 'https://avatars0.githubusercontent.com/u/49000',
 
         author_github => 'gelisam',
         author_reddit => 'gelisam',
@@ -84,7 +84,7 @@ get '/' => sub {
         template => 'talk',
 
         author_name => 'Christian Lavoie',
-        author_avatar => 'https://avatars3.githubusercontent.com/u/103466?v=3&s=460',
+        author_avatar => 'https://avatars3.githubusercontent.com/u/103466?',
 
         author_github => 'christianlavoie',
         author_linkedin => 'christianlavoie',
@@ -99,13 +99,13 @@ get '/' => sub {
         talk_text => 'Christian will demonstrate a handful of Haskell libraries like <a href="https://hackage.haskell.org/package/QuickCheck">QuickCheck</a>, <a href="https://hackage.haskell.org/package/hspec">hspec</a>, <a href="https://hackage.haskell.org/package/cereal">cereal</a>, <a href="https://hackage.haskell.org/package/attoparsec">attoparsec</a> and <a href="https://hackage.haskell.org/package/websockets">websockets</a>. But most interestingly, show a way to use Haskell in the browser: the <a href="http://haste-lang.org/">Haste Programming Language</a>.',
     );
 
-    $previous_meetups .= "<center><hr class=\"small-split\"></center>\n";
+    $previous_meetups .= "<hr class=\"small-split\">\n";
 
     $previous_meetups .= $c->render_to_string(
         template => 'talk',
 
         author_name => 'Guillaume Massé',
-        author_avatar => 'https://avatars2.githubusercontent.com/u/921490?v=3&s=460',
+        author_avatar => 'https://avatars2.githubusercontent.com/u/921490?',
 
         author_github => 'MasseGuillaume',
         author_twitter => 'MasseGuillaume',
@@ -231,6 +231,14 @@ __DATA__
             font-weight: bolder;
         }
 
+        .twitter-widget {
+            text-align: center;
+        }
+
+        .links {
+            text-align: center;
+        }
+
         div.purple-on-white {
             background-color: white;
             color: #342A52;
@@ -243,14 +251,17 @@ __DATA__
 
         .purple-on-white h1 {
             color: #342A52;
+            text-align: center;
         }
 
         .purple-on-white h2 {
             color: #342A52;
+            text-align: center;
         }
 
         .purple-on-white h3 {
             color: #342A52;
+            text-align: center;
         }
 
         .purple-on-white {
@@ -269,14 +280,17 @@ __DATA__
 
         .white-on-purple h1 {
             color: white;
+            text-align: center;
         }
 
         .white-on-purple h2 {
             color: white;
+            text-align: center;
         }
 
         .white-on-purple h3 {
             color: white;
+            text-align: center;
         }
 
         .white-on-purple {
@@ -310,7 +324,7 @@ __DATA__
             border-style: dashed;
             border-width: 3px 0 0 0;
             color: #342A52;
-            margin: 40px;
+            margin: 40px auto 40px auto;
             width: 50%;
         }
 
@@ -318,7 +332,7 @@ __DATA__
             border-style: dashed;
             border-width: 1px 0 0 0;
             color: #342A52;
-            margin: 20px;
+            margin: 20px auto 20px auto;
             width: 35%;
         }
 
@@ -332,7 +346,7 @@ __DATA__
 <body><div class="pure-g">
     <div class="white-on-purple">
         <div class="pure-u-1">
-            <center><h1>Montreal Haskellers Meetup</h1></center>
+            <h1>Montreal Haskellers Meetup</h1>
         </div>
 
         <div class="pure-u-lg-2-5 pure-u-md-1-2 pure-u-1">
@@ -349,17 +363,17 @@ __DATA__
         </div>
 
         <div class="pure-u-lg-3-5 pure-u-md-1-2 pure-u-1">
-            <center style="padding: 10%;"><a class="twitter-timeline" href="https://twitter.com/search?q=%23montreal%20%23haskell" data-widget-id="650461506920800256">Tweets about #montreal #haskell</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></center>
+            <div class="twitter-widget"><a class="twitter-timeline" href="https://twitter.com/search?q=%23montreal%20%23haskell" data-widget-id="650461506920800256">Tweets about #montreal #haskell</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
         </div>
 
         <div class="pure-u-1 links">
-            <center><a href="#next">Our Next Meetup</a> | <a href="#digs">Our Digs</a> | <a href="#previous">Our Previous Meetups</a> | <a href="#links">Links</a> | <a href="#sponsors">Sponsors</a></center>
+            <a href="#next">Our Next Meetup</a> | <a href="#digs">Our Digs</a> | <a href="#previous">Our Previous Meetups</a> | <a href="#links">Links</a> | <a href="#sponsors">Sponsors</a>
         </div>
     </div>
 
     <div class="purple-on-white">
         <div class="pure-u-1">
-            <center><h2><a id="next">Our Next Meetup</a></h2></center>
+            <h2><a id="next">Our Next Meetup</a></h2>
         </div>
 
         <div class="pure-u-1">
@@ -376,15 +390,15 @@ __DATA__
 
     <div class="white-on-purple">
         <div class="pure-u-1">
-            <center><h2><a id="digs">Our digs: RPM, 420 Rue Guy, Montr&eacute;al</a><h2></center>
+            <h2><a id="digs">Our digs: RPM, 420 Rue Guy, Montr&eacute;al</a></h2>
 
-            <iframe style="min-height: 450px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.0165586740145!2d-73.56659279999997!3d45.48961130000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a638a6b442b%3A0xe315ad11de05f102!2sCentre+cloud.ca!5e0!3m2!1sen!2sca!4v1443915930301" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <iframe style="border:0; min-height: 450px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.0165586740145!2d-73.56659279999997!3d45.48961130000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a638a6b442b%3A0xe315ad11de05f102!2sCentre+cloud.ca!5e0!3m2!1sen!2sca!4v1443915930301"></iframe>
         </div>
     </div>
 
     <div class="purple-on-white">
         <div class="pure-u-1">
-            <center><h2><a id="previous">Our Previous Meetups</a></h2></center>
+            <h2><a id="previous">Our Previous Meetups</a></h2>
         </div>
 
         <%== $previous_meetups %>
@@ -392,7 +406,7 @@ __DATA__
 
     <div class="white-on-purple">
         <div style="padding: 3%" class="pure-u-1 pure-u-sm-1-2 white-on-purple">
-            <center><h3><a id="links">Links</a></h3></center>
+            <h2><a id="links">Links</a></h2>
 
             <p>The <a href="http://www.haskell.org">Haskell Programming Language</a> homepage is the main resource to learn the language.</p>
 
@@ -402,7 +416,7 @@ __DATA__
         </div>
 
         <div style="padding: 3%" class="pure-u-1 pure-u-sm-1-2 white-on-purple">
-            <center><h3><a id="sponsors">Sponsors</a></h3></center>
+            <h2><a id="sponsors">Sponsors</a></h2>
 
             <p><strong><a href="http://www.sandreckoning.com">Sand Reckoning Consulting</a></strong> provides technical due diligence consulting for startup investors and infrastructure development for startups.</p>
 
