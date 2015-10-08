@@ -18,27 +18,27 @@ app->secrets([$md5sum]);
 # Author helpers
 helper badge_link_author_github => sub {
     my ($c, $username) = @_;
-    return "<a href=\"https://github.com/$username\"><img alt=\"$username github profile\" src=\"https://img.shields.io/badge/github-$username-76387D.svg\"></a><br>";
+    return "<a href=\"https://github.com/$username\"><img alt=\"$username github profile\" src=\"https://img.shields.io/badge/github-$username-76387D.svg\"></a>";
 };
 
 helper badge_link_author_linkedin => sub {
     my ($c, $username) = @_;
-    return "<a href=\"https://ca.linkedin.com/in/$username\"><img alt=\"$username linkedin profile\" src=\"https://img.shields.io/badge/linkedin-$username-76387D.svg\"></a><br>";
+    return "<a href=\"https://ca.linkedin.com/in/$username\"><img alt=\"$username linkedin profile\" src=\"https://img.shields.io/badge/linkedin-$username-76387D.svg\"></a>";
 };
 
 helper badge_link_author_reddit => sub {
     my ($c, $username) = @_;
-    return "<a href=\"https://reddit.com/user/$username\"><img alt=\"$username reddit profile\" src=\"https://img.shields.io/badge/reddit-/u/$username-76387D.svg\"></a><br>";
+    return "<a href=\"https://reddit.com/user/$username\"><img alt=\"$username reddit profile\" src=\"https://img.shields.io/badge/reddit-/u/$username-76387D.svg\"></a>";
 };
 
 helper badge_link_author_twitter => sub {
     my ($c, $username) = @_;
-    return "<a href=\"https://twitter.com/$username\"><img alt=\"$username twitter profile\" src=\"https://img.shields.io/badge/twitter-\@$username-76387D.svg\"></a><br>";
+    return "<a href=\"https://twitter.com/$username\"><img alt=\"$username twitter profile\" src=\"https://img.shields.io/badge/twitter-\@$username-76387D.svg\"></a>";
 };
 
 helper badge_link_author_website => sub {
     my ($c, $url) = @_;
-    return "<a href=\"http://$url\"><img alt=\"website\" src=\"https://img.shields.io/badge/website-$url-76387D.svg\"></a><br>";
+    return "<a href=\"http://$url\"><img alt=\"website\" src=\"https://img.shields.io/badge/website-$url-76387D.svg\"></a>";
 };
 
 # Talk helpers
@@ -46,20 +46,33 @@ helper badge_link_talk_code => sub {
     my ($c, $url) = @_;
     my $escaped = $url;
     $escaped =~ s/-/--/g;
-    return "<a href=\"https://$url\"><img alt=\"talk code\" src=\"https://img.shields.io/badge/code-$escaped-76387D.svg\"></a><br>";
+    return "<a href=\"https://$url\"><img alt=\"talk code\" src=\"https://img.shields.io/badge/code-$escaped-76387D.svg\"></a>";
 };
 
 helper badge_link_talk_slides => sub {
     my ($c, $url) = @_;
     my $escaped = $url;
     $escaped =~ s/-/--/g;
-    return "<a href=\"https://$url\"><img alt=\"talk slides\" src=\"https://img.shields.io/badge/slides-$escaped-76387D.svg\"></a><br>";
+    return "<a href=\"https://$url\"><img alt=\"talk slides\" src=\"https://img.shields.io/badge/slides-$escaped-76387D.svg\"></a>";
 };
 
 get '/' => sub {
     my $c = shift;
 
-    my $next_meetup = $c->render_to_string(
+    my $next = '';
+    my $previous = '';
+
+    $next .= $c->render_to_string(
+        template => 'looking');
+
+    $previous .= $c->render_to_string(
+        template => 'meetup',
+
+        url => 'http://www.meetup.com/Haskellers-Montreal-Meetup/events/224680392/',
+        date => 'Wednesday, December 2nd, 2015 @ 18:30',
+        addr => 'RPM, 420 rue Guy, Montréal, QC');
+
+    $previous .= $c->render_to_string(
         template => 'talk',
 
         author_name => 'Samuel Gélineau',
@@ -69,18 +82,21 @@ get '/' => sub {
         author_reddit => 'gelisam',
 
         talk_level => 'expert',
+
+        talk_code => 'github.com/gelisam/category-syntax',
+        talk_slides => 'github.com/gelisam/slides/commits/free-category',
         talk_title => 'The search for free categories: A higher-kinded quest.');
 
-    my $previous_meetups = '';
+    $previous .= "<hr class=\"large-split\">\n";
 
-    $previous_meetups .= $c->render_to_string(
+    $previous .= $c->render_to_string(
         template => 'meetup',
 
         url => 'http://www.meetup.com/Haskellers-Montreal-Meetup/events/223004218/',
         date => 'Wednesday, July 29th, 2015 @ 18:30',
         addr => 'RPM, 420 rue Guy, Montréal, QC');
 
-    $previous_meetups .= $c->render_to_string(
+    $previous .= $c->render_to_string(
         template => 'talk',
 
         author_name => 'Christian Lavoie',
@@ -99,9 +115,9 @@ get '/' => sub {
         talk_text => 'Christian will demonstrate a handful of Haskell libraries like <a href="https://hackage.haskell.org/package/QuickCheck">QuickCheck</a>, <a href="https://hackage.haskell.org/package/hspec">hspec</a>, <a href="https://hackage.haskell.org/package/cereal">cereal</a>, <a href="https://hackage.haskell.org/package/attoparsec">attoparsec</a> and <a href="https://hackage.haskell.org/package/websockets">websockets</a>. But most interestingly, show a way to use Haskell in the browser: the <a href="http://haste-lang.org/">Haste Programming Language</a>.',
     );
 
-    $previous_meetups .= "<hr class=\"small-split\">\n";
+    $previous .= "<hr class=\"small-split\">\n";
 
-    $previous_meetups .= $c->render_to_string(
+    $previous .= $c->render_to_string(
         template => 'talk',
 
         author_name => 'Guillaume Massé',
@@ -116,16 +132,16 @@ get '/' => sub {
         talk_text => 'Guillaume will demonstrate <a href="https://nixos.org/">NixOS</a> and <a href="https://nixos.org/nix/">Nix</a>, the purely functional package manager.',
     );
 
-    $previous_meetups .= "<hr class=\"large-split\">\n";
+    $previous .= "<hr class=\"large-split\">\n";
 
-    $previous_meetups .= $c->render_to_string(
+    $previous .= $c->render_to_string(
         template => 'meetup',
 
         url => 'http://www.meetup.com/Haskellers-Montreal-Meetup/events/219896049/',
         date => 'Wednesday, Feb 11th, 2015 @ 18:30',
         addr => 'RPM, 420 rue Guy, Montréal, QC');
 
-    $previous_meetups .= $c->render_to_string(
+    $previous .= $c->render_to_string(
         template => 'talk',
 
         author_name => 'Ben Kirwin',
@@ -135,12 +151,13 @@ get '/' => sub {
         author_website => 'ben.kirw.in',
 
         talk_level => 'intermediate',
+        talk_title => 'Growing a Merkle Tree',
         talk_slides => 'ben.kirw.in/slides/merkle-tree.html',
         talk_text => 'As promised, the <a href="http://ben.kirw.in/slides/merkle-tree.html">slides from yesterday</a>. On the subject of program specialization / partial evaluation -- GHC does something vaguely analogous using <a href="https://downloads.haskell.org/~ghc/7.0.1/">rewrite rules</a> to avoid creating a bunch of intermediate data structures and a <a href="http://www.haskellforall.com/2014/01/stream-fusion-for-pipes.html">relatively-friendly introduction with some benchmarking</a>.'
     );
 
-    $c->stash(next_meetup => $next_meetup);
-    $c->stash(previous_meetups => $previous_meetups);
+    $c->stash(next => $next);
+    $c->stash(previous => $previous);
     $c->render('index');
 };
 
@@ -148,6 +165,20 @@ get '/' => sub {
 app->start;
 
 __DATA__
+@@ looking.html.ep
+        <div class="pure-u-1">
+            <p>We are looking for speakers! We would most welcome talks on anything you would be interested in presenting. If you're looking for inspiration, the following topics have been requested:</p>
+
+            <ul>
+                <li>How other languages tackle core Haskell features (eg, exploring Clojure's Core.Typed).</li>
+                <li>How to use QuickCheck, HUnit and/or HSpec to test your Haskell code.</li>
+                <li>Parallel processing using REPA, accelerate, DPH or CloudHaskell</li>
+                <li>What's coming in GHC 7.10 or 8.0</li>
+                <li>Introduction to writing web app using one of scotty, yesod, snap...</li>
+            </ul>
+
+            <p class="inline-links">If you are interested in presenting those or any other relevant presentation, please contact <%== badge_link_author_twitter 'christianlav' %>, <%== badge_link_author_reddit 'moosefish' %> or <%== badge_link_author_reddit 'gelisam' %>; or even open a new topic on <a href="http://www.meetup.com/Haskellers-Montreal-Meetup/">our meetup.com page</a>.</p>
+        </div>
 @@ meetup.html.ep
         <div class="pure-u-1">
             <a href="<%= $url %>"><img class="meetup-logo" alt="meetup.com logo"
@@ -180,11 +211,11 @@ __DATA__
             <% } %>
 
             <% if (defined stash->{talk_code}) { %>
-                %== badge_link_talk_code stash->{talk_code}
+                <%== badge_link_talk_code stash->{talk_code} %><br>
             <% } %>
 
             <% if (defined stash->{talk_slides}) { %>
-                %== badge_link_talk_slides stash->{talk_slides}
+                <%== badge_link_talk_slides stash->{talk_slides} %><br>
             <% } %>
         </div>
 
@@ -200,23 +231,23 @@ __DATA__
             <p class="title"><%= $author_name %></p>
 
             <% if (defined stash->{author_github}) { %>
-                %== badge_link_author_github stash->{author_github}
+                <%== badge_link_author_github stash->{author_github} %><br>
             <% } %>
 
             <% if (defined stash->{author_linkedin}) { %>
-                %== badge_link_author_linkedin stash->{author_linkedin}
+                <%== badge_link_author_linkedin stash->{author_linkedin} %><br>
             <% } %>
 
             <% if (defined stash->{author_reddit}) { %>
-                %== badge_link_author_reddit stash->{author_reddit}
+                <%== badge_link_author_reddit stash->{author_reddit} %><br>
             <% } %>
 
             <% if (defined stash->{author_twitter}) { %>
-                %== badge_link_author_twitter stash->{author_twitter}
+                <%== badge_link_author_twitter stash->{author_twitter} %><br>
             <% } %>
 
             <% if (defined stash->{author_website}) { %>
-                %== badge_link_author_website stash->{author_website}
+                <%== badge_link_author_website stash->{author_website} %><br>
             <% } %>
         </div>
 
@@ -254,6 +285,10 @@ __DATA__
             text-align: center;
         }
 
+        .inline-links a img {
+            vertical-align: -5.5px;
+        }
+
         .links a {
             display: inline-block;
         }
@@ -275,6 +310,7 @@ __DATA__
             background-color: white;
             color: #342A52;
             padding: 0 3% 3% 3%;
+            width: 100%;
         }
 
         .purple-on-white a {
@@ -304,6 +340,7 @@ __DATA__
             background-color: #342A52;
             color: white;
             padding: 0 3% 3% 3%;
+            width: 100%;
         }
 
         .white-on-purple a {
@@ -416,7 +453,7 @@ __DATA__
                 <span class="addr">RPM, 420 rue Guy, Montréal, QC</span></a>
         </div>
 
-        <%== $next_meetup %>
+        <%== $next %>
 
     </div>
 
@@ -433,11 +470,11 @@ __DATA__
             <h2><a id="previous">Our Previous Meetups</a></h2>
         </div>
 
-        <%== $previous_meetups %>
+        <%== $previous %>
     </div>
 
     <div class="white-on-purple">
-        <div style="padding: 3%" class="pure-u-1 pure-u-sm-1-2 white-on-purple">
+        <div class="pure-u-md-1-2 pure-u-1">
             <h2><a id="links">Links</a></h2>
 
             <p>The <a href="http://www.haskell.org">Haskell Programming Language</a> homepage is the main resource to learn the language.</p>
@@ -449,7 +486,7 @@ __DATA__
             <p>For those interested in other languages and technologies in Montr&eacute;al, the Montr&eacute;al Haskellers recommend the <a href="http://js-montreal.org/">JavaScript meetup</a>, the <a href="http://www.meetup.com/mtl-rb/">Ruby Meetup</a> and the <a href="http://big-data.meetup.com/cities/ca/qc/montr%C3%A9al/">BigData meetup</a>.</p>
         </div>
 
-        <div style="padding: 3%" class="pure-u-1 pure-u-sm-1-2 white-on-purple">
+        <div class="pure-u-md-1-2 pure-u-1">
             <h2><a id="sponsors">Sponsors</a></h2>
 
             <p><strong><a href="http://www.sandreckoning.com">Sand Reckoning Consulting</a></strong> provides technical due diligence consulting for startup investors and infrastructure development for startups.</p>
